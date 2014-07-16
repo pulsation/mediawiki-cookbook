@@ -6,8 +6,6 @@ provisioner:
   name: chef_solo
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.4
   - name: centos-6.5
     driver: 
         box: centos-6.5
@@ -16,4 +14,5 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[test-cookbook::default]
     attributes:
