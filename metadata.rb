@@ -7,5 +7,6 @@ long_description 'Installs/Configures test-cookbook'
 version          '0.1.0'
 
 depends          'apache2'
+depends          'php'
 depends          'mysql'
 depends          'database'
