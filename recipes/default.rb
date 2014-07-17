@@ -56,7 +56,6 @@ end
 
 # Add virtualhost
 web_app "mediawiki" do
-  server_name "wiki.localhost"
-  server_aliases ["www.wiki.localhost"]
+  server_name node["mediawiki"]["server_name"]
   docroot node["mediawiki"]["webdir"]
 end

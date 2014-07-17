@@ -5,5 +5,6 @@ default["mediawiki"]["tarball"]["url"]       = "https://releases.wikimedia.org/m
 default["mediawiki"]["database"]["name"]     = "mediawiki"
 default["mediawiki"]["database"]["user"]     = "mediawiki"
 default["mediawiki"]["database"]["password"] = "mediawiki"
+default["mediawiki"]["server_name"]          = "wiki.localhost"
 default['mysql']['server_root_password']     = 'Fak3Pa55w0rd'
 
