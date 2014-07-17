@@ -9,17 +9,44 @@
 
 include_recipe "apache2"
 include_recipe "mysql::server"
+include_recipe "database::mysql"
 
+# Download mediawiki tarball
 remote_file "#{Chef::Config[:file_cache_path]}/" + node['mediawiki']['tarball']['name'] do
   source node['mediawiki']['tarball']['url']
 end
 
-bash "install_mediawkiki" do
+# Extract mediawiki tarball
+bash "extract_mediawkiki" do
   user "root"
 	cwd node['apache']['docroot_dir']
-	code <<-EOH
-	  tar -zxf #{Chef::Config[:file_cache_path]}/mediawiki-1.23.1.tar.gz
-	EOH
+	code = "tar -zxf #{Chef::Config[:file_cache_path]}/" + node['mediawiki']['tarball']['name'] 
 	action :run
 end
 
+# Database connection information
+mysql_connection_info = {
+  :host     => 'localhost',
+  :username => 'root',
+  :password => node['mysql']['server_root_password']
+}
+
+# Create new database
+mysql_database node['mediawiki']['database']['name'] do
+  connection mysql_connection_info
+  action :create
+end
+
+# Create new user
+mysql_database_user node['mediawiki']['database']['user']  do
+  connection mysql_connection_info
+	password	node['mediawiki']['database']['password']
+  action 		:create
+end
+  
+mysql_database_user node['mediawiki']['database']['user'] do
+  connection    mysql_connection_info
+  database_name node["mediawiki"]["database"]["name"]
+  privileges    [:all]
+  action        :grant
+end
