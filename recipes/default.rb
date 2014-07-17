@@ -10,8 +10,8 @@
 include_recipe "apache2"
 include_recipe "mysql::server"
 
-remote_file "#{Chef::Config[:file_cache_path]}/mediawiki-1.23.1.tar.gz" do
-  source 'https://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.1.tar.gz'
+remote_file "#{Chef::Config[:file_cache_path]}/" + node['mediawiki']['tarball']['name'] do
+  source node['mediawiki']['tarball']['url']
 end
 
 bash "install_mediawkiki" do
