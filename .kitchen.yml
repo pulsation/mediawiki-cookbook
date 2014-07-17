@@ -14,5 +14,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[test-cookbook::default]
+      - "recipe[test-cookbook::default]"
     attributes:
