@@ -20,7 +20,7 @@ end
 bash "extract_mediawkiki" do
   user "root"
 	cwd node['apache']['docroot_dir']
-	code = "tar -zxf #{Chef::Config[:file_cache_path]}/" + node['mediawiki']['tarball']['name'] 
+	code "tar -zxf #{Chef::Config[:file_cache_path]}/" + node['mediawiki']['tarball']['name'] 
 	action :run
 end
 
@@ -44,6 +44,7 @@ mysql_database_user node['mediawiki']['database']['user']  do
   action 		:create
 end
   
+# Grant privilages to user
 mysql_database_user node['mediawiki']['database']['user'] do
   connection    mysql_connection_info
   database_name node["mediawiki"]["database"]["name"]
