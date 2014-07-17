@@ -9,3 +9,17 @@
 
 include_recipe "apache2"
 include_recipe "mysql::server"
+
+remote_file "/tmp/mediawiki-1.23.1.tar.gz" do
+  source 'https://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.1.tar.gz'
+end
+
+bash "install_mediawkiki" do
+  user "root"
+	cwd node['apache']['docroot_dir']
+	code <<-EOH
+	  tar -zxf /tmp/mediawiki-1.23.1.tar.gz
+	EOH
+	action :nothing
+end
+
