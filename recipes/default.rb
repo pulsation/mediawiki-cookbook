@@ -59,3 +59,8 @@ web_app "mediawiki" do
   server_name node["mediawiki"]["server_name"]
   docroot node["mediawiki"]["webdir"]
 end
+
+# Add php-xml package
+# TODO: Check if CentOS or Debian
+# TODO: Restart apache2 service
+package "php-xml"
