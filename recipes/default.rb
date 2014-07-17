@@ -20,6 +20,6 @@ bash "install_mediawkiki" do
 	code <<-EOH
 	  tar -zxf #{Chef::Config[:file_cache_path]}/mediawiki-1.23.1.tar.gz
 	EOH
-	action :nothing
+	action :run
 end
 
