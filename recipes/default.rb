@@ -53,3 +53,10 @@ mysql_database_user node['mediawiki']['database']['user'] do
   privileges    [:all]
   action        :grant
 end
+
+# Add virtualhost
+web_app "mediawiki" do
+  server_name "wiki.localhost"
+  server_aliases ["www.wiki.localhost"]
+  docroot node["mediawiki"]["webdir"]
+end
