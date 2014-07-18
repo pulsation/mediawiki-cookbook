@@ -72,5 +72,12 @@ if ["redhat", "centos", "fedora"].include?(node["platform"])
   end
 end
 
-# TODO: Add config file template
+# Config file template
+template node["mediawiki"]["webdir"] + "/LocalSettings.php" do
+  source "LocalSettings.php.erb"
+	mode 0644
+  owner "root"
+	group "root"
+end
+
 # TODO: Migrade existing data
