@@ -1,9 +1,8 @@
-name             'test-cookbook'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+name             'mediawiki'
+maintainer       'pulsation'
 license          'All rights reserved'
-description      'Installs/Configures test-cookbook'
-long_description 'Installs/Configures test-cookbook'
+description      'Installs/Configures mediawiki'
+long_description 'Installs/Configures mediawiki'
 version          '0.1.0'
 
 depends          'apache2'

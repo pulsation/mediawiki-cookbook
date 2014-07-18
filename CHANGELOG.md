@@ -1,6 +1,6 @@
 # 0.1.0
 
-Initial release of test-cookbook
+Initial release of mediawiki
 
 * Enhancements
   * an enhancement

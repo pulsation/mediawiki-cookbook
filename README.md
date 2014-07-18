@@ -1,4 +1,4 @@
-# test-cookbook-cookbook
+# mediawiki-cookbook
 
 TODO: Enter the cookbook description here.
 
@@ -16,7 +16,7 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['test-cookbook']['bacon']</tt></td>
+    <td><tt>['mediawiki']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -25,14 +25,14 @@ TODO: List your supported platforms.
 
 ## Usage
 
-### test-cookbook::default
+### mediawiki::default
 
-Include `test-cookbook` in your node's `run_list`:
+Include `mediawiki` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[test-cookbook::default]"
+    "recipe[mediawiki::default]"
   ]
 }
 ```

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: test-cookbook
+# Cookbook Name:: mediawiki
 # Recipe:: default
 #
 # Copyright (C) 2014 YOUR_NAME
@@ -80,11 +80,12 @@ template node["mediawiki"]["webdir"] + "/LocalSettings.php" do
 	group "root"
 end
 
+# TODO: create database
 # Create admin user
-bash "create_mediawkiki_admin" do
-  user "root"
-	cwd node["mediawiki"]["webdir"]
-	code "php maintenance/createAndPromote.php --bureaucrat --sysop " + node["mediawiki"]["admin_user"]  + " " + node["mediawiki"]["admin_password"] 
-	action :run
-end
+#bash "create_mediawkiki_admin" do
+#  user "root"
+#	cwd node["mediawiki"]["webdir"]
+#	code "php maintenance/createAndPromote.php --bureaucrat --sysop " + node["mediawiki"]["admin_user"]  + " " + node["mediawiki"]["admin_password"] 
+#	action :run
+#end
 
