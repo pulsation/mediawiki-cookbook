@@ -13,6 +13,10 @@ include_recipe "apache2::mod_rewrite"
 include_recipe "mysql::server"
 include_recipe "database::mysql"
 
+include_recipe "php::default"
+include_recipe "php::module_apc"
+include_recipe "php::module_mysql"
+
 # Download mediawiki tarball
 remote_file "#{Chef::Config[:file_cache_path]}/" + node['mediawiki']['tarball']['name'] do
   source node['mediawiki']['tarball']['url']
