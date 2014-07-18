@@ -61,6 +61,12 @@ web_app "mediawiki" do
 end
 
 # Add php-xml package
-# TODO: Check if CentOS or Debian
-# TODO: Restart apache2 service
-package "php-xml"
+if ["redhat", "centos", "fedora"].include?(node["platform"])
+  package "php-xml"
+	service "apache2" do
+    action :restart
+  end
+end
+
+# TODO: Add config file template
+# TODO: Migrade existing data
