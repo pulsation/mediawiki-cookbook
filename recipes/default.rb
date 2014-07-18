@@ -80,4 +80,11 @@ template node["mediawiki"]["webdir"] + "/LocalSettings.php" do
 	group "root"
 end
 
-# TODO: Migrade existing data
+# Create admin user
+bash "create_mediawkiki_admin" do
+  user "root"
+	cwd node["mediawiki"]["webdir"]
+	code "php maintenance/createAndPromote.php --bureaucrat --sysop " + node["mediawiki"]["admin_user"]  + " " + node["mediawiki"]["admin_password"] 
+	action :run
+end
+
