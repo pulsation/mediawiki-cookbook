@@ -9,8 +9,11 @@ platforms:
   - name: centos-6.5
     driver: 
         box: centos-6.5
-#        box_url: https://vagrantcloud.com/baremettle/centos-6.5/version/1/provider/libvirt.box
-  - name: debian-7.4
+        box_url: https://vagrantcloud.com/baremettle/centos-6.5/version/1/provider/libvirt.box
+  - name: debian-7.5
+    driver:
+      box: debian-7.5
+      box_url: https://vagrantcloud.com/baremettle/debian-7.5/version/1/provider/libvirt.box
 
 suites:
   - name: default

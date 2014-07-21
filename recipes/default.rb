@@ -65,28 +65,28 @@ web_app "mediawiki" do
   docroot node["mediawiki"]["webdir"]
 end
 
-# Add php-xml package
-if ["redhat", "centos", "fedora"].include?(node["platform"])
+# Additional packages
+case node["platform_family"]
+when "rhel"
   package "php-xml"
+  package "libicu-devel"
 	service "apache2" do
     action :restart
   end
+when "debian"
+  package "libicu-dev"
 end
 
-# Config file template
-template node["mediawiki"]["webdir"] + "/LocalSettings.php" do
-  source "LocalSettings.php.erb"
-	mode 0644
-  owner "root"
-	group "root"
+
+php_pear "intl" do
+    action :install
 end
 
-# TODO: create database
-# Create admin user
-#bash "create_mediawkiki_admin" do
-#  user "root"
-#	cwd node["mediawiki"]["webdir"]
-#	code "php maintenance/createAndPromote.php --bureaucrat --sysop " + node["mediawiki"]["admin_user"]  + " " + node["mediawiki"]["admin_password"] 
-#	action :run
-#end
+# Configure mediawiki database
+bash "configure_mediawkiki_database" do
+  user "root"
+	cwd node["mediawiki"]["webdir"]
+  code "php maintenance/install.php " + node["mediawiki"]["site_name"] + node["mediawiki"]["admin_user"] + " --pass " + node["mediawiki"]["admin_password"] + " --dbname " + node["mediawiki"]["database"]["name"] + " --dbpass " + node["mediawiki"]["database"]["password"] + " --dbuser " + node["mediawiki"]["database"]["name"]
+	action :run
+end
 
