@@ -86,7 +86,7 @@ end
 bash "configure_mediawkiki_database" do
   user "root"
 	cwd node["mediawiki"]["webdir"]
-  code "php maintenance/install.php " + node["mediawiki"]["site_name"] + node["mediawiki"]["admin_user"] + " --pass " + node["mediawiki"]["admin_password"] + " --dbname " + node["mediawiki"]["database"]["name"] + " --dbpass " + node["mediawiki"]["database"]["password"] + " --dbuser " + node["mediawiki"]["database"]["name"]
+  code "php maintenance/install.php " + node["mediawiki"]["site_name"] + node["mediawiki"]["admin_user"] + " --pass " + node["mediawiki"]["admin_password"] + " --dbname " + node["mediawiki"]["database"]["name"] + " --dbpass " + node["mediawiki"]["database"]["password"] + " --dbuser " + node["mediawiki"]["database"]["name"] + " --server " + node["mediawiki"]["server"]
 	action :run
 end
 
