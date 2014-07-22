@@ -94,7 +94,7 @@ bash "configure_mediawkiki_database" do
     " --server " + node["mediawiki"]["server"] + 
     " --scriptpath " + node["mediawiki"]["scriptpath"] + 
     " --lang " + node["mediawiki"]["language_code"] +
-    " " + node["mediawiki"]["site_name"] + " " + node["mediawiki"]["admin_user"]
+    " '" + node["mediawiki"]["site_name"] + "' " + node["mediawiki"]["admin_user"]
 	action :run
 end
 
