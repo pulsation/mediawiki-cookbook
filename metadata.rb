@@ -1,6 +1,6 @@
 name             'mediawiki'
 maintainer       'pulsation'
-license          'All rights reserved'
+license          'BSD'
 description      'Installs/Configures mediawiki'
 long_description 'Installs/Configures mediawiki'
 version          '0.1.0'

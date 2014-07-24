@@ -1,51 +1,38 @@
-# mediawiki-cookbook
+Mediawiki Cookbook
+==================
 
-TODO: Enter the cookbook description here.
+Installs/Configures mediawiki
 
-## Supported Platforms
+Requirements
+------------
 
-TODO: List your supported platforms.
+### Platform:
 
-## Attributes
+*No platforms defined*
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['mediawiki']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+### Cookbooks:
 
-## Usage
+* apache2
+* php
+* mysql
+* database
 
-### mediawiki::default
+Attributes
+----------
 
-Include `mediawiki` in your node's `run_list`:
+*No attributes defined*
 
-```json
-{
-  "run_list": [
-    "recipe[mediawiki::default]"
-  ]
-}
-```
+Recipes
+-------
 
-## Contributing
+*No recipes defined*
 
-1. Fork the repository on Github
-2. Create a named feature branch (i.e. `add-new-recipe`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request
+License and Author
+------------------
 
-## License and Authors
+Author:: pulsation (<YOUR_EMAIL>)
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Copyright:: 2014, pulsation
+
+License:: BSD
+
