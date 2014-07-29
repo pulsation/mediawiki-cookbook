@@ -80,7 +80,7 @@ Installs/Configures mediawiki
 License and Author
 ------------------
 
-Author:: pulsation (<YOUR_EMAIL>)
+Author:: pulsation
 
 Copyright:: 2014, pulsation
 
